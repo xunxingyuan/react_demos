@@ -5,7 +5,7 @@ import UsersItem from "../components/userItem";
 const Index = () => <h2>Home</h2>;
 const About = () => <h2>About</h2>;
 const Users = ({ match }) => (
-  <div>
+  <div className="userClass">
     <h2>Users</h2>
     <Route path={`${match.url}/:Id`} component={UsersItem} />
   </div>
