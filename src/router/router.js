@@ -1,15 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import UsersItem from "../components/userItem";
+import { BrowserRouter as Router } from "react-router-dom";
 import Index from "../components/index";
-const About = () => <h2>About</h2>;
-const Users = ({ match }) => (
-  <div className="userClass">
-    <h2>Users</h2>
-    <Route path={`${match.url}/:Id`} component={UsersItem} />
-  </div>
-);
-// const UsersDetail = ({ match }) => <h2>{match.params.Id}</h2>;
+import Users from "../components/users";
+import About from "../components/about";
+import Nav from "../components/common/nav";
 
 const routes = [
   {
@@ -32,26 +26,7 @@ const routes = [
 
 const AppRouter = () => (
   <Router>
-    <div className="mainPage">
-      <nav className="navBox">
-        <ul>
-          {routes.map((route, index) => (
-            <li>
-              <Link to={route.path}>{route.name}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      {routes.map((route, index) => (
-        <Route
-          key={index}
-          path={route.path}
-          exact={route.exact}
-          component={route.main}
-        />
-      ))}
-    </div>
+    <Nav routes={routes} />
   </Router>
 );
 
