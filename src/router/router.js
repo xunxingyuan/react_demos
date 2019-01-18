@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import UsersItem from "../components/userItem";
 
 const Index = () => <h2>Home</h2>;
 const About = () => <h2>About</h2>;
@@ -10,22 +11,6 @@ const Users = ({ match }) => (
   </div>
 );
 // const UsersDetail = ({ match }) => <h2>{match.params.Id}</h2>;
-
-class UsersItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { Id: "loading" };
-  }
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ Id: this.props.match.params.Id });
-    }, 1000);
-  }
-
-  render() {
-    return <h2>{this.state.Id}</h2>;
-  }
-}
 
 const routes = [
   {
