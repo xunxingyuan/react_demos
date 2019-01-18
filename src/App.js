@@ -5,11 +5,7 @@ import AppRouter from "./router/router";
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <AppRouter />
-      </div>
-    );
+    return <AppRouter />;
   }
 }
 

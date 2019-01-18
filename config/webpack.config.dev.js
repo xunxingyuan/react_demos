@@ -182,6 +182,9 @@ module.exports = {
                     })
                   ]
                 }
+              },
+              {
+                loader: require.resolve("less-loader")
               }
             ]
           },
@@ -200,9 +203,6 @@ module.exports = {
             options: {
               name: "static/media/[name].[hash:8].[ext]"
             }
-          },
-          {
-            loader: require.resolve("less-loader")
           }
         ]
       }

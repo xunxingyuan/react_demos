@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import UsersItem from "../components/userItem";
-
-const Index = () => <h2>Home</h2>;
+import Index from "../components/index";
 const About = () => <h2>About</h2>;
 const Users = ({ match }) => (
   <div className="userClass">
@@ -33,8 +32,8 @@ const routes = [
 
 const AppRouter = () => (
   <Router>
-    <div>
-      <nav>
+    <div className="mainPage">
+      <nav className="navBox">
         <ul>
           {routes.map((route, index) => (
             <li>
