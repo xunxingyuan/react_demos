@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Nav extends Component {
   constructor(props) {
@@ -11,26 +11,15 @@ class Nav extends Component {
   }
   render() {
     return (
-      <div className="mainPage">
-        <nav className="navBox">
-          <ul>
-            {this.state.routes.map((route, index) => (
-              <li>
-                <Link to={route.path}>{route.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {this.state.routes.map((route, index) => (
-          <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            component={route.main}
-          />
-        ))}
-      </div>
+      <nav className="navBox">
+        <ul>
+          {this.state.routes.map((route, index) => (
+            <li>
+              <Link to={route.path}>{route.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     );
   }
 }

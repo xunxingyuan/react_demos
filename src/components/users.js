@@ -4,7 +4,7 @@ import UsersItem from "./userItem";
 
 const Users = ({ match }) => (
   <div className="userClass">
-    <h2>Users,{match.url}</h2>
+    <h2>Users</h2>
     <Route path={`${match.url}/:Id`} component={UsersItem} />
   </div>
 );

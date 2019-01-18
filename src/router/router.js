@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Index from "../components/index";
 import Users from "../components/users";
 import About from "../components/about";
@@ -26,7 +26,17 @@ const routes = [
 
 const AppRouter = () => (
   <Router>
-    <Nav routes={routes} />
+    <div className="mainPage">
+      <Nav routes={routes} />
+      {routes.map((route, index) => (
+        <Route
+          key={index}
+          path={route.path}
+          exact={route.exact}
+          component={route.main}
+        />
+      ))}
+    </div>
   </Router>
 );
 
