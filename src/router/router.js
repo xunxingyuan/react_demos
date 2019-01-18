@@ -1,9 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Index = () => <h2>Home</h2>;
 const About = () => <h2>About</h2>;
-const Users = () => <h2>Users</h2>;
+const Users = ({ match }) => (
+  <div>
+    <h2>Users</h2>
+    <Route path={`${match.url}/:Id`} component={UsersItem} />
+  </div>
+);
+// const UsersDetail = ({ match }) => <h2>{match.params.Id}</h2>;
+
+class UsersItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { Id: "loading" };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ Id: this.props.match.params.Id });
+    }, 1000);
+  }
+
+  render() {
+    return <h2>{this.state.Id}</h2>;
+  }
+}
 
 const routes = [
   {
@@ -48,17 +70,5 @@ const AppRouter = () => (
     </div>
   </Router>
 );
-
-// function RouteWithSubRoutes(route) {
-//   return (
-//     <Route
-//       path={route.path}
-//       render={props => (
-//         // pass the sub-routes down to keep nesting
-//         <route.component {...props} routes={route.routes} />
-//       )}
-//     />
-//   );
-// }
 
 export default AppRouter;
