@@ -12,13 +12,12 @@ class Nav extends Component {
   render() {
     return (
       <nav className="navBox">
-        <ul>
-          {this.state.routes.map((route, index) => (
-            <li>
-              <Link to={route.path}>{route.name}</Link>
-            </li>
-          ))}
-        </ul>
+        <div className="navLogo">reactDemo</div>
+        {this.state.routes.map((route, index) => (
+          <div className="menuItem" key={index}>
+            <Link to={route.path}>{route.name}</Link>
+          </div>
+        ))}
       </nav>
     );
   }
